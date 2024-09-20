@@ -22,6 +22,30 @@
 			  width: 120px; /* A képek szélessége 100px */
 			  height: 30px; /* A képek magassága 100px */
 			}
+
+
+			      /* Figyelmeztető doboz stílus */
+				  #alertBox {
+            background-color: rgba(255, 0, 0, 0.507);
+            color: white;
+            position: fixed;
+            width: 100%;
+            left: 0;
+            padding: 10px;
+            text-align: center;
+            z-index: 1000;
+            transition: top 0.3s ease-in-out;
+        }
+        /* Alapértelmezetten a doboz az oldal alján van */
+        #alertBox.bottom {
+            top: auto;
+            bottom: 0;
+        }
+        /* Amikor az oldal tetején van, felugrik az oldal tetejére */
+        #alertBox.top {
+            top: 0;
+            bottom: auto;
+        }
 		
 			
 		  </style>
@@ -35,7 +59,7 @@
 		<nav class="custom-navbar navbar navbar navbar-expand-md navbar-dark bg-dark" arial-label="Furni navigation bar">
 
 			<div class="container">
-				<a class="navbar-brand" href="index.html">MecsekSí</a>
+				<a class="navbar-brand" href="index.html"><img src="./images/Ski_logo.jpg" alt="" width="150"></a>
 
 				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsFurni" aria-controls="navbarsFurni" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
@@ -255,7 +279,7 @@
 		<!-- End Product Section -->
 
 		<!-- Start Why Choose Us Section -->
-		<div class="why-choose-section mt-3" id="about">
+		<div class="why-choose-section" id="about">
 			<div class="container">
 				<div class="row justify-content-between">
 					<div class="col-lg-6">
@@ -271,7 +295,7 @@
 
 					<div class="col-lg-5">
 						<div class="img-wrap">
-							<img src="images/about.jpg" alt="Image" class="img-fluid">
+							<img src="images/meno_sielo.jpg" alt="Image" class="img-fluid">
 						</div>
 					</div>
 
@@ -446,6 +470,11 @@
 			<div class="container">
 			
 				<div class="row">
+					    <!-- Hirdetmény értesítés (alapértelmezés szerint rejtett) -->
+					<div class="container mt-5">
+						<h2 class="text-center">Híreink</h2>
+						<div id="posts" class="row"></div> <!-- Ide kerülnek a hirdetmények -->
+					</div>
 
 					<div class="col-12 col-sm-6 col-md-4 mb-4 mb-md-0">
 						<div class="post-entry">
@@ -471,6 +500,20 @@
 				</div>
 			</div>
 		</div>
+
+		<div class="container">
+		<div id="hirdetmenyAlert" class="alert alert-primary alert-dismissible fade show fixed-bottom" role="alert"  style="display: none; margin: 0; text-align: center;">
+			<strong>Új hírek érkeztek!</strong> Csekkold új híreinket!
+			<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+		  </div>
+
+		</div>  
+
+
+		<!-- Figyelmeztető doboz (rejtett kezdetben) -->
+<div id="alertBox" class="bottom" style="display: none;"></div>
+
+		
 		<!-- End Blog Section -->	
 
 
@@ -520,7 +563,7 @@
 				<div class="row">
 					<div class="col-lg-8">
 
-						<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2768.941766742209!2d18.218416312533602!3d46.05225977096903!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4742b3d484850637%3A0x3c5eeee89eaa2d69!2zUMOpY3MsIEd5dWxhaSBQw6FsIHUuIDI4LWIsIDc2MzI!5e0!3m2!1shu!2shu!4v1724589575693!5m2!1shu!2shu" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+						<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2768.941766742209!2d18.218416312533602!3d46.05225977096903!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4742b3d484850637%3A0x3c5eeee89eaa2d69!2zUMOpY3MsIEd5dWxhaSBQw6FsIHUuIDI4LWIsIDc2MzI!5e0!3m2!1shu!2shu!4v1724589575693!5m2!1shu!2shu" width="50%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
 					</div>
 				</div>
@@ -601,6 +644,8 @@
 
 		<script src="js/bootstrap.bundle.min.js"></script>
 		<script src="js/main.js"></script>
+		<script src="js/post_control.js"></script>
+		<script src="js/alert_control.js"></script>
 	</body>
 
 </html>
